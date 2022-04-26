@@ -158,28 +158,12 @@
       }
     },
     {
-      "apiVersion": "2017-03-30",
-      "type": "Microsoft.Compute/availabilitySets",
-      "location": "[parameters('location')]",
-      "name": "[parameters('availSetName')]",
-      "dependsOn": [
-        "nicloop"
-      ],
-      "properties": {
-        "PlatformUpdateDomainCount": 20,
-        "PlatformFaultDomainCount": 2
-      },
-      "tags": {
-        "displayName": "availSet"
-      },
-      "sku": {
-        "name": "Aligned"
-      }
-    },
-    {
       "name": "[concat(parameters('dcPrefix'),padLeft(add(copyIndex(),1),2,'0'))]",
       "type": "Microsoft.Compute/virtualMachines",
       "location": "[parameters('location')]",
+      "zones": [
+        "[copyIndex(1)]"
+      ],
       "apiVersion": "2017-03-30",
       "copy": {
         "count": "[parameters('resourceCount')]",
@@ -195,9 +179,7 @@
         "hardwareProfile": {
           "vmSize": "[variables('vmSize')]"
         },
-        "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availSetName'))]"
-        },
+
         "osProfile": {
           "computerName": "[concat(parameters('dcPrefix'),padLeft(add(copyIndex(),1),2,'0'))]",
           "adminUsername": "[parameters('locAdminUsername')]",
