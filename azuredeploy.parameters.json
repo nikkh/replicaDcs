@@ -3,12 +3,12 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "dcPrefix": {
-      "value": "azdc"
+      "value": "vm-dc"
     },
     "locAdminUserName": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/bf40ea37-b2e8-45df-84e0-a42552440233/resourceGroups/jdv-vnet-eastus/providers/Microsoft.KeyVault/vaults/kv-jmrdev-plat-id"
+          "id": "/subscriptions/ff6f6942-874e-421b-b928-3867e507f168/resourceGroups/rg-identity-dcs/providers/Microsoft.KeyVault/vaults/kv-spldev-plat-identity"
         },
         "secretName": "local-admin"
       }
@@ -16,15 +16,15 @@
     "locAdminPswrd": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/bf40ea37-b2e8-45df-84e0-a42552440233/resourceGroups/jdv-vnet-eastus/providers/Microsoft.KeyVault/vaults/kv-jmrdev-plat-id"
+          "id": "/subscriptions/ff6f6942-874e-421b-b928-3867e507f168/resourceGroups/rg-identity-dcs/providers/Microsoft.KeyVault/vaults/kv-spldev-plat-identity"
         },
         "secretName": "local-admin-pw"
       }
     },
     "ipAddresses": {
       "value": [
-        "10.110.0.4",
-        "10.110.0.5"
+        "172.0.251.4",
+        "172.0.251.5"
       ]
     },
     "winOSVer": {
@@ -34,21 +34,21 @@
       "value": "Premium_LRS"
     },
     "existing-vNetName": {
-      "value": "bf40ea37-b2e8-45df-84e0-a42552440233jdv-vnet-eastus"
+      "value": "ff6f6942-874e-421b-b928-3867e507f168spldev-vnet-uksouth"
     },
     "existing-vNet-rg": {
-      "value": "jdv-vnet-eastus"
+      "value": "spldev-vnet-uksouth"
     },
     "location": {
-      "value": "eastus"
+      "value": "uksouth"
     },
     "domainToJoin": {
-      "value": "jmrdev.local"
+      "value": "thiswillfail"
     },
     "domainAdminPassword": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/bf40ea37-b2e8-45df-84e0-a42552440233/resourceGroups/jdv-vnet-eastus/providers/Microsoft.KeyVault/vaults/kv-jmrdev-plat-id"
+          "id": "/subscriptions/ff6f6942-874e-421b-b928-3867e507f168/resourceGroups/rg-identity-dcs/providers/Microsoft.KeyVault/vaults/kv-spldev-plat-identity"
         },
         "secretName": "domain-admin-pw"
       }
@@ -56,7 +56,7 @@
     "domainAdminUsername": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/bf40ea37-b2e8-45df-84e0-a42552440233/resourceGroups/jdv-vnet-eastus/providers/Microsoft.KeyVault/vaults/kv-jmrdev-plat-id"
+          "id": "/subscriptions/ff6f6942-874e-421b-b928-3867e507f168/resourceGroups/rg-identity-dcs/providers/Microsoft.KeyVault/vaults/kv-spldev-plat-identity"
         },
         "secretName": "domain-admin"
       }
@@ -65,7 +65,7 @@
       "value": "https://github.com/sbkuehn/replicaDcs/blob/master/DSC/promote-adds.zip?raw=true"
     },
     "existing-vNet-subnet": {
-      "value": "IdentitySubnet"
+      "value": "ADDSSubnet"
     }
   }
 }
